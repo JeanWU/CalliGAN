@@ -13,11 +13,7 @@ from char_info import get_component
 img_folder = sys.argv[1]  # img_folder: crawler
 dst_folder_all = sys.argv[2]  # img_all
 dst_folder_cns = sys.argv[3]  # img_all_cns
-# cns2img_all_9 indicates only 9 test characters is selected
 src_font = "SimSun.ttf"
-
-# folder_list = ['歐陽詢-九成宮', '歐陽詢-皇甫誕', '虞世南', '褚遂良', '柳公權', '顏真卿多寶塔體', '顏真卿-顏勤禮碑']
-
 
 def get_char(folder_name):
     char_list = []
@@ -143,21 +139,5 @@ print("intersect_list len: ", len(intersect_list))
 # sharedChar = getSharedCharacter(folder_list, img_folder)
 # print(len(sharedChar)) 3857
 generatePairImg(selectedTestChar=select_test_character(intersect_list), save_folder_all=dst_folder_all, save_folder_cns=dst_folder_cns, folder_list=folder_list, img_folder=img_folder)
-'''
-category_list = ['褚遂良', '柳公權', '虞世南', '歐陽詢-九成宮', '顏真卿多寶塔體']
-for idx, category_name in enumerate(category_list):
-    src_folder = os.path.join(img_folder, category_name)
-    print(src_folder)
-    filenameDict, filenameList = getFilename(src_folder)
-    splitTrainTest_AB(filenameList, filenameDict, dst_folder, src_folder, category=idx)
-'''
-# python addCategoryLabel.py ../crawler/ ../together_image/AB
-# python addCategoryLabel_stargan.py ../crawler/ ../together_image_for_stargan
-# python addCategoryLabel_stargan.py ../crawler/ ../Kai
-# python preprocess_cns2img.py ../crawler ../cns2img_Liu
-# python preprocess_cns2img.py ../crawler ../cns2img_all
-# python preprocess_all_image.py ../crawler ../image_all ../image_all_cns
-# python preprocess_all_image.py ../crawler ../image_all_gray ../image_all_cns_gray
-# python preprocess_all_image_grayscale.py ../crawler ../image_256_gray ../image_256_cns_gray
-# python preprocess_all_image_grayscale.py ../crawler ../image_split_1 ../image_cns_split_1
+
 

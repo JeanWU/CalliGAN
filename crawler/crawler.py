@@ -12,8 +12,8 @@ def crawler(url, post_name):
                 os.makedirs(post_name)
 
     while not last_page:
-        r = requests.get(url) #將此頁面的HTML GET下來
-        soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
+        r = requests.get(url) # 將此頁面的HTML GET下來
+        soup = BeautifulSoup(r.text,"html.parser") # 將網頁資料以html.parser
 
         # get image and save image
         img = soup.find_all("img", align="center")
@@ -26,7 +26,7 @@ def crawler(url, post_name):
             img2 = pic.content
             pic_out = open(post_name+'/'+char+ '.png','wb')
             pic_out.write(img2)
-            pic_out.close() #關閉檔案(很重要)
+            pic_out.close() # 關閉檔案(很重要)
 
         count += 1
 

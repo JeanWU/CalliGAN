@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 from __future__ import absolute_import
-import parser
+import models.parser
 import tensorflow as tf
-from unet_onehot_cns_font_attention import UNet
+from models.unet_onehot_cns_font_attention import UNet
 
 
 def main(_):
@@ -37,7 +37,3 @@ def main(_):
 
 if __name__ == '__main__':
     tf.app.run()
-
-
-# single: CUDA_VISIBLE_DEVICES=2 python infer_onehot_cns.py --model_dir=../experiment_single/experiment_single_0/checkpoint/experiment_5_batch_16/ --batch_size=1 --source_obj=../experiment_single/experiment_single_0/data/cns_test.obj --save_dir ../experiment_single/all_results_5/style_0 --embedding_ids=0
-# multiple: CUDA_VISIBLE_DEVICES=3 python infer_onehot_cns.py --model_dir=../experiment_multiple/checkpoint/experiment_9_batch_16/ --batch_size=1 --source_obj=../experiment_single/experiment_single_0/data/cns_test.obj --save_dir ../experiment_multiple/results_9/style_0 --embedding_ids=0

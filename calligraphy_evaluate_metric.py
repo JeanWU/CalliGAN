@@ -76,8 +76,3 @@ if __name__ == "__main__":
 
 # calculate mse, ssim score for each folder
 # calculate total_mse, total_ssim score for all folders
-''' !!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!!!!
-1. need to execute in DLCV/final/ environment
-2. need to make sure the generated image is save in jpg format; otherwise, the error will be incorrect! 
-'''
-# python calligraphy_evaluate_metric.py -g ../../calligraphy/zi2zi/gt_test_all/ -p ../../calligraphy/zi2zi/experiment_ori/all_results_jpg/

@@ -17,14 +17,16 @@ def pickle_examples(paths, train_path, val_path, train_val_split=0.1):
     with open(train_path, 'wb') as ft:
         with open(val_path, 'wb') as fv:
             for p in paths:
-                cns_code = os.path.basename(p[:-4]).split("_")[0]
+                cns_code = os.path.basename(p).split("_")[0]
+                label = int(os.path.basename(p).split("_")[1])
                 with open(p, 'rb') as f:
                     if cns_code == 'None':
                         print("None alert! ")
+                    print("img %s" % p, label)
                     print("cns code: ", cns_code)
                     img_bytes = f.read()
                     r = random.random()
-                    example = (cns_code, img_bytes)
+                    example = (cns_code, label, img_bytes)
                     if r < train_val_split:
                         pickle.dump(example, fv)
                     else:
@@ -39,10 +41,8 @@ parser.add_argument('--split_ratio', type=float, default=0.1, dest='split_ratio'
 args = parser.parse_args()
 
 if __name__ == "__main__":
-    train_path = os.path.join(args.save_dir, "cns_font_train.obj")
-    val_path = os.path.join(args.save_dir, "cns_font_test.obj")
+    train_path = os.path.join(args.save_dir, "cns_train.obj")
+    val_path = os.path.join(args.save_dir, "cns_test.obj")
     pickle_examples(sorted(glob.glob(os.path.join(args.dir, "*.jpg"))), train_path=train_path, val_path=val_path,
                     train_val_split=args.split_ratio)
 
-# python package_cns_font.py --dir=/2t_2/jeanwu/calligraphy/cns2img/cns2img_font/test --save_dir . --split_ratio=1
-# python package_cns.py --dir=cns2img_all/test --save_dir . --split_ratio=1

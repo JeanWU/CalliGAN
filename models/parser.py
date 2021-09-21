@@ -5,7 +5,7 @@ import argparse
 def arg_parse():
     parser = argparse.ArgumentParser(description='paired starGAN for Chinese Calligraphy Generation')
 
-    # args for train_ori.py
+    # args for train.py
     parser.add_argument('--experiment_dir', dest='experiment_dir',
                         help='experiment directory, data, samples,checkpoints,etc')
     parser.add_argument('--experiment_id', dest='experiment_id', type=int, default=0,
@@ -39,7 +39,7 @@ def arg_parse():
     parser.add_argument('--flip_labels', dest='flip_labels', type=int, default=None,
                         help='whether flip training data labels or not, in fine tuning')
 
-    # args for infer_ori.py
+    # args for infer.py
     parser.add_argument('--model_dir', dest='model_dir',
                         help='directory that saves the model checkpoints')
     parser.add_argument('--source_obj', dest='source_obj', type=str, help='the source images for inference')
@@ -63,16 +63,6 @@ def arg_parse():
     parser.add_argument('--z_dim', dest='z_dim', type=int, default=32, help="dimension for vector z")
     parser.add_argument('--generator_dir', dest='generator_dir', default='/2t_2/jeanwu/calligraphy/zi2zi/experiment_font/checkpoint/experiment_2_batch_512',
                         help='directory that saves the generator checkpoint')
-
-
-
-
-
-
-
-
-
-
 
     args = parser.parse_args()
 
